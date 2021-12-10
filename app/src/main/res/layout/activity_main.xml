@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:id="@+id/rlmain"
+    android:background="#ffffff"
+    android:orientation="horizontal">
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_direct_chat"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"
+        tools:ignore="ContentDescription" />
+    <TextView
+        android:id="@+id/txtEnterThePhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_the_mobile_number_below"
+        android:layout_below="@id/imgLogo"
+        android:paddingTop="30dp"
+        android:textSize="14sp"
+        android:textColor="#000000"
+        android:layout_marginStart="15dp"
+        tools:ignore="MissingConstraints" />
+    <Button
+        android:id="@+id/btnOpenChat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/llnumber"
+        android:layout_marginTop="15dp"
+        android:textSize="16sp"
+        android:text="@string/open_chat"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        style="@style/AppTheme.RoundedCornerMaterialButton"/>
+    <LinearLayout
+        android:id="@+id/llnumber"
+        android:layout_below="@+id/txtEnterThePhoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:weightSum="3"
+
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+        <com.hbb20.CountryCodePicker
+            android:id="@+id/cpp"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:focusable="true"
+            android:clickable="true"
+            app:ccp_textSize="16sp"
+            app:ccp_autoDetectCountry="true"
+            app:ccp_showNameCode="true"/>
+        <EditText
+            android:id="@+id/etEnterMobile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:maxLength="15"
+            android:textSize="16sp"
+            android:inputType="number"
+            android:hint="@string/enter_mobile_number"
+            android:gravity="center"
+            tools:ignore="Missing Constraints"
+            android:importantForAutofill="no" />
+    </LinearLayout>
+    <com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_marginTop="70dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="ca-app-pub-8217519970289973/3116043968">
+    </com.google.android.gms.ads.AdView>
+
+</RelativeLayout>
